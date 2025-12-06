@@ -12,6 +12,7 @@ def rolls_accessed(grid):
                     sum += grid[nr][nc]
             if sum < 4 and grid[r][c] == 1:
                 res += 1
+                grid[r][c] = 0
     return res
 
 if __name__ == "__main__":
@@ -29,5 +30,10 @@ if __name__ == "__main__":
     
     # for line in grid:
     #     print(line)
+    multi_res = 0
+    res = -1
+    while res != 0:
+        res = rolls_accessed(grid)
+        multi_res += res
 
-    print(rolls_accessed(grid))
+    print(multi_res)
